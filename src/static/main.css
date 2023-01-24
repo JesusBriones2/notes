@@ -1,0 +1,179 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    font-family: Verdana, sans-serif;
+}
+
+.cta-addNote {
+    background-color: #0000;
+    display: block;
+    margin: 20px auto;
+    font-size: 20px;
+    padding: 10px 0;
+    width: 150px;
+    color: #b1b1b1;
+    border: 2px solid #b1b1b1;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+.cta-addNote:hover {
+    border-color: #fff;
+    color: #fff;
+}
+.cta-addNote:active {
+    color: #b1b1b1;
+    border: 2px solid #b1b1b1;
+}
+
+
+
+.main {
+    width: 90%;
+    max-width: 400px;
+    margin: 20px auto;
+    display: grid;
+    gap: 20px;
+    scroll-behavior: smooth;
+    overflow: auto;
+}
+
+.main::-webkit-scrollbar {width: 0;}
+
+
+.note {
+    border-radius: 10px;
+    padding: 15px;
+    display: grid;
+    grid-template-columns: 1fr 20px;
+    grid-template-rows: max-content max-content;
+    gap: 10px 40px;
+    background-color: #877bb84a;
+    color: #ccc;
+    transition: background-color .2s;
+    user-select: none;
+}
+
+.note:hover {
+    background-color: #877bb861;
+}
+
+.note__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.note i {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: max-content;
+    align-self: center;
+    grid-column: 2/3;
+    grid-row: 1/3;
+    font-size: 20px;
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.note i:hover { transform: scale(1.4); }
+
+
+
+
+/* .editNote-container * {outline: 1px solid red;} */
+
+.editNote-container {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: inherit;
+    
+    color: #555;
+    padding: 20px;
+
+    transition: transform .3s, opacity .3s;
+    transform: translateX(100%);
+    opacity: 0;
+}
+
+.editNote {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: 0 auto;
+    height: 100%;
+}
+
+.editNote__icon {
+    font-size: 25px;
+    cursor: pointer;
+    color: #aaa;
+}
+
+.editNote__icon i {
+    padding: 10px;
+}
+
+.editNote__icon i:hover {
+    color: #fff;
+}
+
+
+.editNote__title {
+    background-color: inherit;
+    outline: none;
+    margin: 15px 0;
+    border: none;
+    font-size: 22px;
+    color: #ccc;
+    border-bottom: 1px solid #b1b1b1;
+    letter-spacing: 2px;
+}
+
+.editNote__numCharacters {
+    border-left: 1px solid #b1b1b1;
+    padding-left: 8px;
+}
+
+textarea {
+    font-family: Verdana, sans-serif;
+    background-color: inherit;
+    outline: none;
+    border: none;
+    margin-top: 25px;
+    font-size: 1em;
+    resize: none;
+    flex-grow: 1;
+    color: #ccc;
+}
+
+textarea::-webkit-scrollbar {width: 0;}
+
+
+@media screen and (max-width: 450px) and (orientation: portrait) {
+    .cta-addNote {
+        margin: 20px;
+        width: 46px;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        border-radius: 50%;
+    }
+
+    .main {
+        max-height: 490px;
+        margin-top: 60px;
+    }
+}
